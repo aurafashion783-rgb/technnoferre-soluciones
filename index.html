@@ -195,7 +195,15 @@
             font-weight: 600;
             font-size: 0.9rem;
             text-align: center;
-            padding: 1rem;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #ffffff;
         }
 
         .product-details {
@@ -521,16 +529,16 @@
 
     <script>
         const PRODUCTS = [
-            { id: 1, code: 'BHKTHP10321', name: 'Juego manual básico 32 piezas', price: 195 },
-            { id: 2, code: 'HKTP110021', name: 'Juego manual familiar 101 piezas', price: 340 },
-            { id: 3, code: 'HKTS512201', name: 'Set crique y tubos 20 piezas 1/2"', price: 270 },
-            { id: 4, code: 'HKTHP21421', name: 'Juego completo taller 142 piezas', price: 520 },
-            { id: 5, code: 'ED650VR+set', name: 'Kit taladro percutor 650W + Accesorios', price: 445 },
-            { id: 6, code: 'HKTHP21681', name: 'Set mantenimiento general 168 piezas', price: 680 },
-            { id: 7, code: 'UHKTHP11651', name: 'Taladro Inalámbrico 20V + 165 piezas', price: 630 },
-            { id: 8, code: 'CKLI2002', name: 'Combo Taladro + Amoladora 20V', price: 750 },
-            { id: 9, code: 'CKLI2002-2', name: 'Combo doble batería 20V', price: 900 },
-            { id: 10, code: 'CIDLI206682+Acc', name: 'Taladro brushless 20V + Kit profesional', price: 725 }
+            { id: 1, code: 'BHKTHP10321', name: 'Juego manual básico 32 piezas', price: 195, image: 'images/BHKTHP10321.webp' },
+            { id: 2, code: 'HKTP110021', name: 'Juego manual familiar 101 piezas', price: 340, image: 'images/HKTP110021.jpg' },
+            { id: 3, code: 'HKTS512201', name: 'Set crique y tubos 20 piezas 1/2"', price: 270, image: 'images/HKTS512201.webp' },
+            { id: 4, code: 'HKTHP21421', name: 'Juego completo taller 142 piezas', price: 520, image: 'images/HKTHP21421.png' },
+            { id: 5, code: 'ED650VR+set', name: 'Kit taladro percutor 650W + Accesorios', price: 445, image: 'images/ED650VR_set.jpg' },
+            { id: 6, code: 'HKTHP21681', name: 'Set mantenimiento general 168 piezas', price: 680, image: 'images/HKTHP21681.jpg' },
+            { id: 7, code: 'UHKTHP11651', name: 'Taladro Inalámbrico 20V + 165 piezas', price: 630, image: 'images/UHKTHP11651.webp' },
+            { id: 8, code: 'CKLI2002', name: 'Combo Taladro + Amoladora 20V', price: 750, image: 'images/CKLI2002.webp' },
+            { id: 9, code: 'CKLI2002-2', name: 'Combo doble batería 20V', price: 900, image: 'images/CKLI2002_2.jpg' },
+            { id: 10, code: 'CIDLI206682+Acc', name: 'Taladro brushless 20V + Kit profesional', price: 725, image: 'images/CIDLI206682_Acc.webp' }
         ];
 
         const WHATSAPP_NUMBER = '59172164576';
@@ -552,7 +560,7 @@
             productGrid.innerHTML = PRODUCTS.map(product => `
                 <div class="product-card">
                     <div class="product-image">
-                        Technoferre<br>[${product.code}]
+                        <img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentNode.innerText='Technoferre\\n[${product.code}]';">
                     </div>
                     <div class="product-details">
                         <div>
